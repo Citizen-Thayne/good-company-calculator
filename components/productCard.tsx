@@ -26,7 +26,7 @@ export function ProductCard(props: { product: ProductItem }) {
 
         <div className="flex-col"><Label className="font-semibold">Ingredients</Label>
           {props.product.recipe.map((item) => {
-            return <div>
+            return <div key={item.name}>
               {item.name}
             </div>
           })}

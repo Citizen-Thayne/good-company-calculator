@@ -25,7 +25,7 @@ export function ProductSection() {
 
       <div>
         {products.map((product) => {
-          return <ProductCard product={product} />
+          return <ProductCard key={product.name} product={product} />
         })}
       </div>
 
