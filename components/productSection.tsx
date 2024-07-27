@@ -16,8 +16,7 @@ import { Separator } from "./ui/separator";
 
 export function ProductSection() {
   const { state: { products }, dispatch } = useContext(UserProductsContext)
-
-  const addNewProduct = (product: ProductItem) => dispatch({ type: 'ADD_PRODUCT', product })
+  const [showNewProduct, setShowNewProduct] = useState(false)
 
   return (
     <section>
@@ -29,18 +28,21 @@ export function ProductSection() {
         })}
       </div>
 
-      <Dialog>
+      <Dialog onOpenChange={setShowNewProduct} open={showNewProduct}>
         <DialogTrigger>
-          <Button >+ Add Product</Button>
+          <Button>+ Add Product</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Add New Product</DialogTitle>
           </DialogHeader>
-          <ProductForm onSubmit={addNewProduct} />
+          <ProductForm onSubmit={(product) => {
+            dispatch({ type: 'ADD_PRODUCT', product })
+            setShowNewProduct(false)
+          }} />
 
           <DialogClose className="flex flex-col items-stretch" >
-            <Button variant='outline'>Cancel</Button>
+
           </DialogClose>
 
         </DialogContent>
@@ -73,11 +75,13 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
     name: 'recipe'
   })
 
-  const addItem = () => { recipeFields.append({ name: 'Plastic Case', count: 1 }) }
 
+  const handleSubmit = (data: ProductItem) => {
+    props.onSubmit?.(data)
+  }
 
   return <Form {...form}  >
-    <form onSubmit={form.handleSubmit((data) => props.onSubmit?.(data))}>
+    <form onSubmit={form.handleSubmit(handleSubmit)}>
       <div className="flex flex-col gap-3">
         <FormField
           control={form.control}
@@ -100,7 +104,7 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
             <FormItem>
               <FormLabel>Type</FormLabel>
               <FormControl>
-                <Select {...field}>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue />
                   </SelectTrigger>
@@ -133,6 +137,7 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
         <FormLabel>Recipe</FormLabel>
         {recipeFields.fields.map((field, index) => (
           <div className='flex items-baseline' key={field.id}>
+            {/* Ingredient name */}
             <FormField
               key={field.id}
               {...form.register(`recipe.${index}.name`)}
@@ -146,7 +151,7 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
                       <SelectContent>
                         {COMPONENT_NAMES.map(component =>
                           <div key={component}>
-                            <SelectItem value={component} key={component}>{component}</SelectItem>
+                            <SelectItem value={component} key={component} >{component}</SelectItem>
                           </div>
                         )}
                       </SelectContent>
@@ -154,11 +159,12 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
 
                   </FormControl>
                 </FormItem>
-
               )}
             />
 
             <div className="mx-2">X</div>
+
+            {/* Igredient Count */}
             <FormField
               key={field.id}
               {...form.register(`recipe.${index}.count`)}
@@ -168,20 +174,28 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
                     <Input type="number" step="1"  {...field} className="w-[72px]" />
                   </FormControl>
                 </FormItem>
-
               )}
             />
+
+            <Button className="ml-1" variant='link' onClick={(e) => {
+              e.stopPropagation()
+              e.preventDefault()
+              recipeFields.remove(index)
+            }}>Remove</Button>
+
           </div>
         ))}
 
-        <Button onClick={addItem}>+ Add Item</Button>
+        <Button onClick={(e) => {
+          e.stopPropagation()
+          e.preventDefault()
+          recipeFields.append({ name: 'Plastic Case', count: 1 })
+        }}>+ Add Ingredient</Button>
 
         <Separator />
-
 
         <Button className="mt-6" type='submit'>Save</Button>
       </div>
     </form>
   </Form>
-
 }
