@@ -17,6 +17,8 @@ export const COMPONENT_NAMES = [
 
 type ComponentName = typeof COMPONENT_NAMES[number]
 
+export type IngredientName = ComponentName | MaterialName
+
 export const PRODUCT_TYPES = [
   'Calculator',
   'Toy Robot'
@@ -30,8 +32,13 @@ type BaseItem = {
   imageUrl?: string
 }
 
-type Craftable<R> = {
-  recipe: R[]
+export type RecipeItem = {
+  name: IngredientName
+  count: number
+}
+
+export type Craftable = {
+  recipe: RecipeItem[]
   craftTime: number
   craftBatchSize: number
 }
@@ -46,27 +53,15 @@ type MaterialItem = BaseItem & {
   stackBuyPrice: number
 }
 
-type ComponentRecipeItem = {
-  name: ComponentName | MaterialName
-  count: number
-}
-
-type ComponentItem = BaseItem & Craftable<ComponentRecipeItem> & Sellable & {
+type ComponentItem = BaseItem & Craftable & Sellable & {
   category: Omit<ItemCategory, 'Materials' | 'Product'>
 }
 
-
-type ProductRecipeItem = {
-  name: ComponentName
-  count: number
-}
-export type ProductItem = BaseItem & Craftable<ProductRecipeItem> & Sellable & {
+export type ProductItem = BaseItem & Craftable & Sellable & {
   stackSize: 1
   category: 'Product'
   productType: ProductType
 }
-
-
 
 export type Item = MaterialItem | ComponentItem | ProductItem
 
