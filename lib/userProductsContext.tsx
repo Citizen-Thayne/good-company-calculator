@@ -1,18 +1,20 @@
 'use client'
 import React, { createContext, useContext, useReducer } from "react";
-import { ProductItem } from "./items";
+import { ProductItem } from "./items/types";
 
 
 type State = {
   products: ProductItem[]
 }
 
-type Action = { type: 'ADD_PRODUCT', product: ProductItem } | { type: 'REMOVE_PRODUCT', index: number }
+type Action =
+  | { type: 'ADD_PRODUCT', product: ProductItem }
+  | { type: 'REMOVE_PRODUCT', index: number }
+  | { type: 'UPDATE_PRODUCT', index: number, product: ProductItem }
 
-const initialState: State = {
+const initialState: State = Object.freeze({
   products: []
-}
-
+})
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -20,7 +22,10 @@ function reducer(state: State, action: Action): State {
       return { ...state, products: [...state.products, action.product] }
     case 'REMOVE_PRODUCT':
       return { ...state, products: state.products.splice(action.index, 1) }
+    case 'UPDATE_PRODUCT':
+      return { ...state, products: state.products.splice(action.index, 1, action.product) }
     default:
+      console.warn(`Unexpected action: ${action}`)
       return state
   }
 }

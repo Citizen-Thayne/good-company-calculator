@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
 
-import { ALL_ITEMS } from '@/lib/items'
+import { ALL_ITEMS } from '@/lib/items/types'
 import { Button, buttonVariants } from "./ui/button"
 import { Table, TableBody, TableCell, TableRow } from "./ui/table"
 

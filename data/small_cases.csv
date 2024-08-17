@@ -1,0 +1,9 @@
+name              ,case slots ,style value ,sell price
+Plastic Case      ,        14 ,        0   ,        50
+Strengthened Case ,        18 ,        1   ,       145
+Enhanced Case     ,        22 ,        2   ,       280
+Metal Case        ,        16 ,        1   ,       145
+Windowed Case     ,        20 ,        2   ,       270
+Wooden Case       ,        12 ,        0.5 ,        60
+Stylish Case      ,        16 ,        1.5 ,       140
+Polished Case     ,        20 ,        2.5 ,       280

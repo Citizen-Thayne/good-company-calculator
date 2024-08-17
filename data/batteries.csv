@@ -1,0 +1,11 @@
+name                    ,amount ,shape ,sell price
+Single Cell Bettery     ,   0.5 ,i     ,        60
+Enhanced Battery Cell   ,   0.5 ,.     ,        80
+Enhanced Battery Stack  ,   1.5 ,i     ,       220
+Power Pack              ,   2.5 ,i     ,       340
+Large Power Pack        ,   2.5 ,I     ,       570
+Battery Stack           ,   1   ,l     ,       100
+Double Battery Stack    ,   1.5 ,l     ,       175
+Quadruple Battery Stack ,   2.5 ,I     ,       330
+Battery Matrix          ,   4.5 ,t     ,       540
+Battery Block           ,   5.5 ,o     ,       630
