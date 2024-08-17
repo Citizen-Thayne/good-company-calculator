@@ -132,7 +132,7 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
 
         <FormLabel>Recipe</FormLabel>
         {recipeFields.fields.map((field, index) => (
-          <div className='flex items-baseline'>
+          <div className='flex items-baseline' key={field.id}>
             <FormField
               key={field.id}
               {...form.register(`recipe.${index}.name`)}
@@ -145,7 +145,7 @@ function ProductForm(props: { value?: ProductItem, onSubmit?: (product: ProductI
                       </SelectTrigger>
                       <SelectContent>
                         {COMPONENT_NAMES.map(component =>
-                          <div>
+                          <div key={component}>
                             <SelectItem value={component} key={component}>{component}</SelectItem>
                           </div>
                         )}
