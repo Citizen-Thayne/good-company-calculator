@@ -1,4 +1,4 @@
-name              ,case slots ,style value ,sell price
+name              ,styleValue ,styleValue ,sellPrice
 Plastic Case      ,        14 ,        0   ,        50
 Strengthened Case ,        18 ,        1   ,       145
 Enhanced Case     ,        22 ,        2   ,       280

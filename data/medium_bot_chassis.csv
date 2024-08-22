@@ -1,4 +1,4 @@
-name                      ,case slots ,style value ,sell price
+name                      ,styleValue ,styleValue ,sellPrice
 Medium Plastic Chassis    ,        32 ,        0   ,       360
 Medium Enhanced Chassis   ,        40 ,        2.5 ,       660
 Medium Metal Chassis      ,        28 ,        0   ,       350

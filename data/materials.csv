@@ -1,4 +1,4 @@
-name             ,stack size ,price
+name             ,stackSize  , buyPrice
 Plastic          ,       100 ,  800
 Metal            ,       100 , 1000
 Wood             ,       100 , 1200

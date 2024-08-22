@@ -1,4 +1,4 @@
-name                    ,amount ,shape ,sell price
+name                    ,amount ,shape ,sellPrice
 Single Cell Bettery     ,   0.5 ,i     ,        60
 Enhanced Battery Cell   ,   0.5 ,.     ,        80
 Enhanced Battery Stack  ,   1.5 ,i     ,       220

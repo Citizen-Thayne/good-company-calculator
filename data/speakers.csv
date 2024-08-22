@@ -1,4 +1,4 @@
-name                  ,amount ,shape ,price
+name                  ,amount ,shape ,sellPrice
 Beeper                ,   1   ,t     ,  125
 Monophone Speaker     ,   1.5 ,l     ,  230
 Polyphone Speaker     ,   3.0 ,L     ,  440

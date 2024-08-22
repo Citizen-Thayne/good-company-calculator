@@ -1,8 +1,7 @@
-name               ,amount ,shape ,price
+name               ,amount ,shape ,sellPrice
 LED Array          ,   0.5 ,i     ,   60
 LED Matrix         ,   1   ,I     ,  155
 7-Segment Display  ,   2.0 ,l     ,  340
 16-Segment Display ,   3.5 ,L     ,  540
 Simple LCD Display ,   3.5 ,I     ,  540
 LCD Dot Matrix     ,   5.5 ,z     ,  810
-

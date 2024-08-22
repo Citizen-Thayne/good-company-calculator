@@ -1,4 +1,4 @@
-name                   ,case slots ,style value ,sell price
+name                   ,styleValue ,styleValue ,sellPrice
 Medium Plastic Case    ,        34 ,        0   ,       210
 Medium Enhanced Case   ,        44 ,        2   ,       400
 Medium Metal Case      ,        30 ,        0   ,       200

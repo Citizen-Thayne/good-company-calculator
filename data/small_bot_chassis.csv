@@ -1,4 +1,4 @@
-name                    ,case slots ,style value ,sell price
+name                    ,styleValue ,styleValue ,sellPrice
 Plastic Bot Chassis     ,        23 ,        0   ,       150
 Lightweight Bot Chassis ,        28 ,        1.5 ,       330
 Enhanced Bot Chassis    ,        33 ,        3   ,       520
