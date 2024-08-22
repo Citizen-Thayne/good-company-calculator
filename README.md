@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Good Company Production Calculator
 
-## Getting Started
+Welcome to the **Good Company Production Calculator**! This web app is designed to help you optimize your production chains and demands in the video game *Good Company*. Whether you're managing a small startup or a massive industrial empire in the game, this tool will streamline your workflow and maximize efficiency.
 
-First, run the development server:
+## 🚀 Features (WIP)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **In-Game Product Input**: Easily input the products you're manufacturing in *Good Company*.
+- **Production Chain Calculation**: Automatically calculates the production demands and chains required for your products.
+- **Efficiency Optimization**: Get insights into how to improve your production lines and meet your goals faster.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Built With
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **[Next.js](https://nextjs.org/)**: A powerful React framework for building scalable web applications.
+- **[shadcn/ui](https://shadcn.dev/)**: A modern UI toolkit for React, providing reusable components with minimal effort.
+- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🌟 How to Use
+### Web
+Check it out [here](https://good-company-calculator-1zlc.vercel.app/)
+### Run it yourself
 
-## Learn More
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Citizen-Thayne/good-company-calculator.git
+   cd good-company-calculator
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install Dependencies**:
+   ```bash
+   bun install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the Development Server**:
+   ```bash
+   bun run dev
+   ```
+   Visit [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Start Calculating**:
+   - Input the products you're manufacturing in the game.
+   - The app will calculate the necessary production chains and display them in an easy-to-understand format.
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions are welcome! If you have suggestions or find a bug, please open an issue or submit a pull request.
