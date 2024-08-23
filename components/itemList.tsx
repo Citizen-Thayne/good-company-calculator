@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import Image from 'next/image'
 
-import { ALL_ITEMS } from "@/lib/items/types";
-import { Button } from "./ui/button";
+import { ALL_ITEMS } from '@/lib/items/types'
+import { Button } from './ui/button'
 
 export function ItemList(props: { onClick?: (itemName: string) => void }) {
   return (
@@ -28,8 +28,8 @@ export function ItemList(props: { onClick?: (itemName: string) => void }) {
               {item.name}
             </div>
           </Button>
-        );
+        )
       })}
     </div>
-  );
+  )
 }

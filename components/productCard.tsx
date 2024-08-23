@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { ProductItem } from "../lib/items/types";
-import { ProductForm } from "./productForm";
-import { Button } from "./ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { useState } from 'react'
+import { ProductItem } from '../lib/items/types'
+import { ProductForm } from './productForm'
+import { Button } from './ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
-import { Label } from "./ui/label";
+} from './ui/dialog'
+import { Label } from './ui/label'
 
 export function ProductCard(props: {
-  product: ProductItem;
-  onUpdate: (product: ProductItem) => void;
+  product: ProductItem
+  onUpdate: (product: ProductItem) => void
 }) {
-  const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const [showUpdateForm, setShowUpdateForm] = useState(false)
 
   return (
     <Card className="w-[350px]">
@@ -37,8 +37,8 @@ export function ProductCard(props: {
 
                 <ProductForm
                   onSubmit={(product) => {
-                    props.onUpdate(product);
-                    setShowUpdateForm(false);
+                    props.onUpdate(product)
+                    setShowUpdateForm(false)
                   }}
                 />
               </DialogContent>
@@ -60,11 +60,11 @@ export function ProductCard(props: {
           <div className="flex-col">
             <Label className="font-semibold">Ingredients</Label>
             {props.product.recipe.map((item) => {
-              return <div key={item.name}>{item.name}</div>;
+              return <div key={item.name}>{item.name}</div>
             })}
           </div>
         </CardContent>
       </CardHeader>
     </Card>
-  );
+  )
 }

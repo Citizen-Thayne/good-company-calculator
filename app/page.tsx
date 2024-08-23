@@ -1,6 +1,6 @@
-import { DemandSection } from "../components/demandSection";
-import { ProductSection } from "../components/productSection";
-import { UserProductsContextProvider } from "../lib/userProductsContext";
+import { DemandSection } from '../components/demandSection'
+import { ProductSection } from '../components/productSection'
+import { UserProductsContextProvider } from '../lib/userProductsContext'
 
 export default function Home() {
   return (
@@ -10,5 +10,5 @@ export default function Home() {
         <DemandSection />
       </main>
     </UserProductsContextProvider>
-  );
+  )
 }

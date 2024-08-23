@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   ColumnDef,
@@ -7,12 +7,12 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
+} from '@tanstack/react-table'
+import { ArrowUpDown } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
+import { Badge } from './ui/badge'
+import { Button } from './ui/button'
 import {
   Table,
   TableBody,
@@ -20,85 +20,85 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from './ui/table'
 
 type Item = {
-  name: string;
-  amount?: number;
-  sellPrice?: number;
-  buyPrice?: number;
-};
+  name: string
+  amount?: number
+  sellPrice?: number
+  buyPrice?: number
+}
 const columns: ColumnDef<Item>[] = [
   {
-    id: "name",
-    header: "Item",
-    accessorKey: "name",
+    id: 'name',
+    header: 'Item',
+    accessorKey: 'name',
     cell: (cell) => {
-      const itemName: string = cell.row.getValue("name");
-      const imageUrl = getItemImage(itemName);
+      const itemName: string = cell.row.getValue('name')
+      const imageUrl = getItemImage(itemName)
 
       return (
         <div className="flex items-center gap-2">
           <Image src={imageUrl} height={24} width={24} alt="image of item" />
           <p>{itemName}</p>
         </div>
-      );
+      )
     },
   },
   {
-    id: "itemType",
-    header: "Type",
-    accessorKey: "itemType",
+    id: 'itemType',
+    header: 'Type',
+    accessorKey: 'itemType',
     cell: ({ row }) => {
-      const itemType: string = row.getValue("itemType");
+      const itemType: string = row.getValue('itemType')
 
-      return <Badge variant="outline">{itemType}</Badge>;
+      return <Badge variant="outline">{itemType}</Badge>
     },
   },
   {
-    id: "amount",
+    id: 'amount',
     header: ({ column }) => (
       <p className="text-right">
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
           Amount
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       </p>
     ),
-    accessorKey: "amount",
+    accessorKey: 'amount',
     cell: ({ row }) => (
-      <p className="text-right">{row.getValue("amount") || "-"}</p>
+      <p className="text-right">{row.getValue('amount') || '-'}</p>
     ),
   },
   {
-    id: "sellPrice",
+    id: 'sellPrice',
     header: ({ column }) => (
       <p className="text-right">
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
           Sell Price
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       </p>
     ),
-    accessorKey: "sellPrice",
+    accessorKey: 'sellPrice',
     cell: ({ row }) => (
-      <p className="text-right">{row.getValue("sellPrice") || "-"}</p>
+      <p className="text-right">{row.getValue('sellPrice') || '-'}</p>
     ),
   },
   {
-    id: "buyPrice",
-    accessorKey: "buyPrice",
+    id: 'buyPrice',
+    accessorKey: 'buyPrice',
     header: ({ column }) => (
       <p className="text-right">
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
           Buy Price
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -106,17 +106,17 @@ const columns: ColumnDef<Item>[] = [
       </p>
     ),
     cell: ({ row }) => (
-      <p className="text-right">{row.getValue("buyPrice") || "-"}</p>
+      <p className="text-right">{row.getValue('buyPrice') || '-'}</p>
     ),
   },
   {
-    id: "stackSize",
-    accessorKey: "stackSize",
+    id: 'stackSize',
+    accessorKey: 'stackSize',
     header: ({ column }) => (
       <p className="text-right">
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
           Stack Size
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -124,18 +124,18 @@ const columns: ColumnDef<Item>[] = [
       </p>
     ),
     cell: ({ row }) => (
-      <p className="text-right">{row.getValue("stackSize") || "-"}</p>
+      <p className="text-right">{row.getValue('stackSize') || '-'}</p>
     ),
   },
-];
+]
 
 const getItemImage = (_itemName: string) => {
   // TODO: Replace placeholder with real images
-  return "https://wiki.goodcompanygame.com/gamedb/icons/icons_modules/itm_plastic_case.png";
-};
+  return 'https://wiki.goodcompanygame.com/gamedb/icons/icons_modules/itm_plastic_case.png'
+}
 
 export function ItemTable(props: { items: Item[] }) {
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([])
 
   const table = useReactTable({
     columns,
@@ -144,7 +144,7 @@ export function ItemTable(props: { items: Item[] }) {
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     state: { sorting },
-  });
+  })
   return (
     <Table>
       <TableHeader>
@@ -157,17 +157,17 @@ export function ItemTable(props: { items: Item[] }) {
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                 </TableHead>
-              );
+              )
             })}
           </TableRow>
         ))}
       </TableHeader>
       <TableBody>
         {table.getRowModel().rows?.map((row) => (
-          <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+          <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
             {row.getVisibleCells().map((cell) => (
               <TableCell key={cell.id}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -177,5 +177,5 @@ export function ItemTable(props: { items: Item[] }) {
         ))}
       </TableBody>
     </Table>
-  );
+  )
 }

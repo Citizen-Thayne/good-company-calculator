@@ -1,11 +1,7 @@
-"use client";
-import { useFieldArray, useForm } from "react-hook-form";
-import {
-  COMPONENT_NAMES,
-  PRODUCT_TYPES,
-  ProductItem,
-} from "../lib/items/types";
-import { Button } from "./ui/button";
+'use client'
+import { useFieldArray, useForm } from 'react-hook-form'
+import { COMPONENT_NAMES, PRODUCT_TYPES, ProductItem } from '../lib/items/types'
+import { Button } from './ui/button'
 import {
   Form,
   FormControl,
@@ -13,20 +9,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./ui/form";
-import { Input } from "./ui/input";
+} from './ui/form'
+import { Input } from './ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { Separator } from "./ui/separator";
+} from './ui/select'
+import { Separator } from './ui/separator'
 
 export function ProductForm(props: {
-  value?: ProductItem;
-  onSubmit?: (product: ProductItem) => void;
+  value?: ProductItem
+  onSubmit?: (product: ProductItem) => void
 }) {
   const form = useForm<ProductItem>({
     values: props.value,
@@ -35,21 +31,21 @@ export function ProductForm(props: {
       craftBatchSize: 1,
       sellPrice: 1,
       stackSize: 1,
-      category: "Product",
-      name: "My Product",
-      productType: "Calculator",
+      category: 'Product',
+      name: 'My Product',
+      productType: 'Calculator',
       recipe: [],
     },
-  });
+  })
 
   const recipeFields = useFieldArray({
     control: form.control,
-    name: "recipe",
-  });
+    name: 'recipe',
+  })
 
   const handleSubmit = (data: ProductItem) => {
-    props.onSubmit?.(data);
-  };
+    props.onSubmit?.(data)
+  }
 
   return (
     <Form {...form}>
@@ -89,7 +85,7 @@ export function ProductForm(props: {
                           <SelectItem value={productType} key={productType}>
                             {productType}
                           </SelectItem>
-                        );
+                        )
                       })}
                     </SelectContent>
                   </Select>
@@ -173,9 +169,9 @@ export function ProductForm(props: {
                 className="ml-1"
                 variant="link"
                 onClick={(e) => {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  recipeFields.remove(index);
+                  e.stopPropagation()
+                  e.preventDefault()
+                  recipeFields.remove(index)
                 }}
               >
                 Remove
@@ -185,9 +181,9 @@ export function ProductForm(props: {
 
           <Button
             onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              recipeFields.append({ name: "Plastic Case", count: 1 });
+              e.stopPropagation()
+              e.preventDefault()
+              recipeFields.append({ name: 'Plastic Case', count: 1 })
             }}
           >
             + Add Ingredient
@@ -201,5 +197,5 @@ export function ProductForm(props: {
         </div>
       </form>
     </Form>
-  );
+  )
 }

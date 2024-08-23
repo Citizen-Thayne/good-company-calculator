@@ -3,11 +3,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "wiki.goodcompanygame.com",
+        protocol: 'https',
+        hostname: 'wiki.goodcompanygame.com',
       },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

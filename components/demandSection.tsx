@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { DemandItem, useDemand } from "../lib/hooks/useDemand";
+} from '@tanstack/react-table'
+import { DemandItem, useDemand } from '../lib/hooks/useDemand'
 import {
   Table,
   TableBody,
@@ -14,33 +14,33 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from './ui/table'
 
 const columns: ColumnDef<DemandItem>[] = [
   {
-    accessorKey: "name",
-    header: "Name",
+    accessorKey: 'name',
+    header: 'Name',
   },
   {
-    accessorKey: "dailyDemand",
-    header: "Demand (Daily)",
+    accessorKey: 'dailyDemand',
+    header: 'Demand (Daily)',
   },
   {
-    accessorKey: "weeklyDemand",
-    header: "Demand (Weekly)",
+    accessorKey: 'weeklyDemand',
+    header: 'Demand (Weekly)',
   },
-];
+]
 
-const stableArray: DemandItem[] = [];
+const stableArray: DemandItem[] = []
 export function DemandSection() {
-  const _data = useDemand();
-  const data = _data.length === 0 ? stableArray : _data;
+  const _data = useDemand()
+  const data = _data.length === 0 ? stableArray : _data
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-  });
+  })
 
   return (
     <section>
@@ -56,10 +56,10 @@ export function DemandSection() {
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext(),
+                          header.getContext()
                         )}
                   </TableHead>
-                );
+                )
               })}
             </TableRow>
           ))}
@@ -69,7 +69,7 @@ export function DemandSection() {
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
-                data-state={row.getIsSelected() && "selected"}
+                data-state={row.getIsSelected() && 'selected'}
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
@@ -88,5 +88,5 @@ export function DemandSection() {
         </TableBody>
       </Table>
     </section>
-  );
+  )
 }

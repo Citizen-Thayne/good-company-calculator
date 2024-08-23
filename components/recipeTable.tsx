@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
 import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { Button } from "./ui/button";
+} from '@tanstack/react-table'
+import { Button } from './ui/button'
 import {
   Table,
   TableBody,
@@ -14,39 +14,39 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
-import { Input } from "./ui/input";
+} from './ui/table'
+import { Input } from './ui/input'
 
 type Recipe = {
-  name: string;
-  craftTime: number;
-};
+  name: string
+  craftTime: number
+}
 
 export const RecipeTable = () => {
-  const columnHelper = createColumnHelper<Recipe>();
+  const columnHelper = createColumnHelper<Recipe>()
 
   const columns = [
-    columnHelper.accessor("name", {
+    columnHelper.accessor('name', {
       cell: (info) => info.getValue(),
-      header: "Name",
+      header: 'Name',
     }),
-    columnHelper.accessor("craftTime", {
-      header: "Craft Time",
+    columnHelper.accessor('craftTime', {
+      header: 'Craft Time',
     }),
-  ];
+  ]
 
   const data: Recipe[] = [
     {
-      name: "Plastic Case",
+      name: 'Plastic Case',
       craftTime: 0.5,
     },
-  ];
+  ]
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-  });
+  })
   return (
     <>
       <Button>+ Add Recipe</Button>
@@ -61,10 +61,10 @@ export const RecipeTable = () => {
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext(),
+                          header.getContext()
                         )}
                   </TableHead>
-                );
+                )
               })}
             </TableRow>
           ))}
@@ -74,13 +74,13 @@ export const RecipeTable = () => {
             ? table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext(),
+                        cell.getContext()
                       )}
                     </TableCell>
                   ))}
@@ -99,5 +99,5 @@ export const RecipeTable = () => {
         </TableBody>
       </Table>
     </>
-  );
-};
+  )
+}
