@@ -1,11 +1,11 @@
+import { useState } from "react";
 import { ProductItem } from "../lib/items/types";
+import { ProductForm } from "./productForm";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Label } from "./ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { ProductForm } from "./productForm";
-import { useContext, useState } from "react";
-import { UserProductsContext } from "../lib/userProductsContext";
+import { Label } from "./ui/label";
+
 
 export function ProductCard(props: { product: ProductItem, onUpdate: (product: ProductItem) => void }) {
   const [showUpdateForm, setShowUpdateForm] = useState(false)

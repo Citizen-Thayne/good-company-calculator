@@ -1,9 +1,8 @@
 'use client'
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "./ui/table";
-import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { ColumnDef } from "@tanstack/react-table"
+
+import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { DemandItem, useDemand } from "../lib/hooks/useDemand";
-import { useEffect, useMemo, useState } from "react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
 
 

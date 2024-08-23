@@ -22,7 +22,7 @@ test.each([
   ["Batteries", Loaders.getBatteries],
   ["Displays", Loaders.getDisplays],
   ["Speakers", Loaders.getSpeakers],
-])("%s", async (name, loader) => {
+])("%s", async (_name, loader) => {
   const result = await loader();
   expect(Array.isArray(result)).toBe(true);
   expect(result.length).toBeGreaterThan(1);
@@ -40,7 +40,7 @@ test.each([
   ["Medium Cases", Loaders.getMediumCases],
   ["Small Bot Chassis", Loaders.getSmallBotChassis],
   ["Small Cases", Loaders.getSmallCases],
-])("%s", async (name, loader) => {
+])("%s", async (_name, loader) => {
   const result = await loader();
   expect(Array.isArray(result)).toBe(true);
   expect(result.length).toBeGreaterThan(1);

@@ -2,14 +2,17 @@
 
 import {
   ColumnDef,
-  useReactTable,
-  getCoreRowModel,
-  flexRender,
-  createColumnHelper,
-  CellContext,
   SortingState,
+  flexRender,
+  getCoreRowModel,
   getSortedRowModel,
+  useReactTable,
 } from "@tanstack/react-table";
+import { ArrowUpDown } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 import {
   Table,
   TableBody,
@@ -18,11 +21,6 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import Image from "next/image";
-import { useState } from "react";
-import { Button } from "./ui/button";
-import { ArrowUpDown } from "lucide-react";
-import { Badge } from "./ui/badge";
 
 type Item = {
   name: string;

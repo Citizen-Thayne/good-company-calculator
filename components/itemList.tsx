@@ -1,9 +1,9 @@
 "use client";
+
 import Image from "next/image";
 
 import { ALL_ITEMS } from "@/lib/items/types";
-import { Button, buttonVariants } from "./ui/button";
-import { Table, TableBody, TableCell, TableRow } from "./ui/table";
+import { Button } from "./ui/button";
 
 export function ItemList(props: { onClick?: (itemName: string) => void }) {
   return (

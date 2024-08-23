@@ -1,11 +1,6 @@
-import { RecipeTable } from "../components/recipeTable";
-import { ProductSection } from "../components/productSection";
-import { ItemList } from "../components/itemList";
-import {
-  UserProductsContext,
-  UserProductsContextProvider,
-} from "../lib/userProductsContext";
 import { DemandSection } from "../components/demandSection";
+import { ProductSection } from "../components/productSection";
+import { UserProductsContextProvider } from "../lib/userProductsContext";
 
 export default function Home() {
   return (

@@ -98,6 +98,5 @@ async function loadDataFile<T>(
     columns: true,
     skipEmptyLines: true,
   });
-  debugger;
   return z.array(schema).parse(json);
 }
