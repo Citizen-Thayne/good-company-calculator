@@ -1,38 +1,52 @@
-'use client'
+"use client";
 
-import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table"
-import { Button } from "./ui/button"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table"
-import { Input } from "./ui/input"
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+import { Button } from "./ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./ui/table";
+import { Input } from "./ui/input";
 
 type Recipe = {
-  name: string
-  craftTime: number
-}
+  name: string;
+  craftTime: number;
+};
 
 export const RecipeTable = () => {
-  const columnHelper = createColumnHelper<Recipe>()
+  const columnHelper = createColumnHelper<Recipe>();
 
   const columns = [
-    columnHelper.accessor('name', {
-      cell: info => info.getValue(),
-      header: 'Name'
+    columnHelper.accessor("name", {
+      cell: (info) => info.getValue(),
+      header: "Name",
     }),
-    columnHelper.accessor('craftTime', {
-      header: 'Craft Time'
-    })
-  ]
+    columnHelper.accessor("craftTime", {
+      header: "Craft Time",
+    }),
+  ];
 
-  const data: Recipe[] = [{
-    name: 'Plastic Case',
-    craftTime: 0.5
-  }]
+  const data: Recipe[] = [
+    {
+      name: "Plastic Case",
+      craftTime: 0.5,
+    },
+  ];
 
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel()
-  })
+    getCoreRowModel: getCoreRowModel(),
+  });
   return (
     <>
       <Button>+ Add Recipe</Button>
@@ -46,34 +60,34 @@ export const RecipeTable = () => {
                     {header.isPlaceholder
                       ? null
                       : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
                   </TableHead>
-                )
+                );
               })}
             </TableRow>
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(
-                      cell.column.columnDef.cell,
-                      cell.getContext()
-                    )}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))
-            // New Recipe Input
-          ) : (null)}
+          {table.getRowModel().rows?.length
+            ? table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            : // New Recipe Input
+              null}
           <TableRow>
             <TableCell>
               <Input type="text" placeholder="Name" />
@@ -83,8 +97,7 @@ export const RecipeTable = () => {
             </TableCell>
           </TableRow>
         </TableBody>
-      </Table >
+      </Table>
     </>
-  )
-
-}
+  );
+};

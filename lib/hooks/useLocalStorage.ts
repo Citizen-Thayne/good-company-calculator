@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect } from "react";
 
 type JsonValue =
   | string
@@ -9,7 +8,10 @@ type JsonValue =
   | JsonValue[]
   | { [key: string]: JsonValue };
 
-export function useLocalStorage<T extends JsonValue>(key: string, initialValue: T) {
+export function useLocalStorage<T extends JsonValue>(
+  key: string,
+  initialValue: T,
+) {
   // Get stored value from localStorage or use initial value
   const [storedValue, setStoredValue] = useState(() => {
     try {
